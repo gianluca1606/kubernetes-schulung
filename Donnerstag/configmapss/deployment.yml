@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-app
+  labels:
+    app: k8s-app
+  namespace: configmaps  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: k8s-app
+  template:
+    metadata:
+      labels:
+        app: k8s-app 
+    spec:
+      containers:
+        - name: k8s-app
+          image: snic/k8s-app:envs
+          env:
+            - name: REDIS_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: redis-config
+                  # Specify the key associated with the value
+                  key: REDIS_HOST

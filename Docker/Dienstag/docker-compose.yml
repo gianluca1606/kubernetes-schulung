@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  web:
+    image: nginx
+    volumes:
+    - /home/student/Schreibtisch/DOcker/Dienstag/static-html-directory:/usr/share/nginx/html
+    ports:
+    - "80:80"

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami-clone
+  labels:
+    app: whoami-clone
+  namespace: dev  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whoami-clone
+  template:
+    metadata:
+      labels:
+        app: whoami-clone
+    spec:
+      containers:
+        - name: whoami-clone
+          image: gianluca1606/whoami-clone:latest

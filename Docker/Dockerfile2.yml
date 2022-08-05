@@ -1,0 +1,5 @@
+FROM node:alpine
+
+RUN apk --no-cache add curl
+
+CMD "npm run start"

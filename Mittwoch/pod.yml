@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+  labels:
+    app: deployment-test
+    tier: node-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: deployment-test
+  template:
+    metadata:
+      labels:
+        app: deployment-test
+    spec:
+      containers:
+        - name: liveness-test
+          image: snic/healthcheck:latest
+          livenessProbe:
+            httpGet: 
+              path: /
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 3

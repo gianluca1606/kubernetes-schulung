@@ -1,0 +1,11 @@
+autos: 
+- hersteller: "Tesla"
+  besitzer:
+    tom: 2010
+    jerry: 2015
+
+- hersteller: "vw"
+  alter: 10
+  laufleistung: 100.000
+  besitzer: ["markus", "peter", "hans", "tom", "klaus"]
+    

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portforward
+  labels:
+    app: portforward
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: portforward
+  template:
+    metadata:
+      labels:
+        app: portforward
+    spec:
+      containers:
+        - name: portforward
+          image: containous/whoami
+         
